@@ -1,6 +1,8 @@
-DJANGO 1.4+ USERS:
-==================
-You should probably look to use Django's included ``static`` template tag rather than use django-cachebuster.  Why include a 3rd party app when you can use the built-in functionality?
+Notes on this industrydive fork:
+=================================
+This is similar to Django's built-in ``static`` tag (as of Django 1.4). I like it better because I prefer the way it structures URLs (``filename.css?1234467`` vs ``filename.1234.css``) and I prefer it's use of file last modified timestamp over staticfiles' default approach of MD5 hash.
+
+This fork is modified from the mainline djang-cachebuster to use ``cachebuststatic`` as the template tag instead of clobbering the existing ``static``
 
 
 
@@ -10,7 +12,7 @@ django-cachebuster -- A backwards-compatible Django 1.3+ ready set of cache-bust
 Overview
 --------
 
-**django-cachebuster** is a Django app containing two template tags: ``static`` and ``media``.  Each tag will use the file last modified timestamp by default to 'bust' web browser file caches.  ``static`` is meant for your site's JavaScript, CSS and standard images.  ``media`` is intended for user uploaded content like avatars, videos and other files.  CloudFront and other content delivery networks are supported.
+**django-cachebuster** is a Django app containing two template tags: ``cachebuststatic`` and ``cachebustmedia``.  Each tag will use the file last modified timestamp by default to 'bust' web browser file caches.  ``cachebuststatic`` is meant for your site's JavaScript, CSS and standard images.  ``cachebustmedia`` is intended for user uploaded content like avatars, videos and other files.  CloudFront and other content delivery networks are supported.
 
 
 Description
